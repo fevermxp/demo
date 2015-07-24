@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fevermxp.demo.dao.UserInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.fevermxp.demo.entity.UserInfo" >
+    <id column="usid" property="usid" jdbcType="INTEGER" />
+    <result column="login" property="login" jdbcType="VARCHAR" />
+    <result column="pass" property="pass" jdbcType="VARCHAR" />
+    <result column="realname" property="realname" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="workcode" property="workcode" jdbcType="VARCHAR" />
+    <result column="crdt" property="crdt" jdbcType="DATE" />
+    <result column="lndt" property="lndt" jdbcType="DATE" />
+    <result column="updt" property="updt" jdbcType="DATE" />
+    <result column="rights" property="rights" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    usid, login, pass, realname, tel, workcode, crdt, lndt, updt, rights
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.fevermxp.demo.entity.UserInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from userinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from userinfo
+    where usid = #{usid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from userinfo
+    where usid = #{usid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.fevermxp.demo.entity.UserInfoExample" >
+    delete from userinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.fevermxp.demo.entity.UserInfo" >
+    insert into userinfo (usid, login, pass, 
+      realname, tel, workcode, 
+      crdt, lndt, updt, rights
+      )
+    values (#{usid,jdbcType=INTEGER}, #{login,jdbcType=VARCHAR}, #{pass,jdbcType=VARCHAR}, 
+      #{realname,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{workcode,jdbcType=VARCHAR}, 
+      #{crdt,jdbcType=DATE}, #{lndt,jdbcType=DATE}, #{updt,jdbcType=DATE}, #{rights,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fevermxp.demo.entity.UserInfo" >
+    insert into userinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="usid != null" >
+        usid,
+      </if>
+      <if test="login != null" >
+        login,
+      </if>
+      <if test="pass != null" >
+        pass,
+      </if>
+      <if test="realname != null" >
+        realname,
+      </if>
+      <if test="tel != null" >
+        tel,
+      </if>
+      <if test="workcode != null" >
+        workcode,
+      </if>
+      <if test="crdt != null" >
+        crdt,
+      </if>
+      <if test="lndt != null" >
+        lndt,
+      </if>
+      <if test="updt != null" >
+        updt,
+      </if>
+      <if test="rights != null" >
+        rights,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="usid != null" >
+        #{usid,jdbcType=INTEGER},
+      </if>
+      <if test="login != null" >
+        #{login,jdbcType=VARCHAR},
+      </if>
+      <if test="pass != null" >
+        #{pass,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="workcode != null" >
+        #{workcode,jdbcType=VARCHAR},
+      </if>
+      <if test="crdt != null" >
+        #{crdt,jdbcType=DATE},
+      </if>
+      <if test="lndt != null" >
+        #{lndt,jdbcType=DATE},
+      </if>
+      <if test="updt != null" >
+        #{updt,jdbcType=DATE},
+      </if>
+      <if test="rights != null" >
+        #{rights,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.fevermxp.demo.entity.UserInfoExample" resultType="java.lang.Integer" >
+    select count(*) from userinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update userinfo
+    <set >
+      <if test="record.usid != null" >
+        usid = #{record.usid,jdbcType=INTEGER},
+      </if>
+      <if test="record.login != null" >
+        login = #{record.login,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pass != null" >
+        pass = #{record.pass,jdbcType=VARCHAR},
+      </if>
+      <if test="record.realname != null" >
+        realname = #{record.realname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tel != null" >
+        tel = #{record.tel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workcode != null" >
+        workcode = #{record.workcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.crdt != null" >
+        crdt = #{record.crdt,jdbcType=DATE},
+      </if>
+      <if test="record.lndt != null" >
+        lndt = #{record.lndt,jdbcType=DATE},
+      </if>
+      <if test="record.updt != null" >
+        updt = #{record.updt,jdbcType=DATE},
+      </if>
+      <if test="record.rights != null" >
+        rights = #{record.rights,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update userinfo
+    set usid = #{record.usid,jdbcType=INTEGER},
+      login = #{record.login,jdbcType=VARCHAR},
+      pass = #{record.pass,jdbcType=VARCHAR},
+      realname = #{record.realname,jdbcType=VARCHAR},
+      tel = #{record.tel,jdbcType=VARCHAR},
+      workcode = #{record.workcode,jdbcType=VARCHAR},
+      crdt = #{record.crdt,jdbcType=DATE},
+      lndt = #{record.lndt,jdbcType=DATE},
+      updt = #{record.updt,jdbcType=DATE},
+      rights = #{record.rights,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fevermxp.demo.entity.UserInfo" >
+    update userinfo
+    <set >
+      <if test="login != null" >
+        login = #{login,jdbcType=VARCHAR},
+      </if>
+      <if test="pass != null" >
+        pass = #{pass,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        realname = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="workcode != null" >
+        workcode = #{workcode,jdbcType=VARCHAR},
+      </if>
+      <if test="crdt != null" >
+        crdt = #{crdt,jdbcType=DATE},
+      </if>
+      <if test="lndt != null" >
+        lndt = #{lndt,jdbcType=DATE},
+      </if>
+      <if test="updt != null" >
+        updt = #{updt,jdbcType=DATE},
+      </if>
+      <if test="rights != null" >
+        rights = #{rights,jdbcType=BIGINT},
+      </if>
+    </set>
+    where usid = #{usid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fevermxp.demo.entity.UserInfo" >
+    update userinfo
+    set login = #{login,jdbcType=VARCHAR},
+      pass = #{pass,jdbcType=VARCHAR},
+      realname = #{realname,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      workcode = #{workcode,jdbcType=VARCHAR},
+      crdt = #{crdt,jdbcType=DATE},
+      lndt = #{lndt,jdbcType=DATE},
+      updt = #{updt,jdbcType=DATE},
+      rights = #{rights,jdbcType=BIGINT}
+    where usid = #{usid,jdbcType=INTEGER}
+  </update>
+</mapper>
