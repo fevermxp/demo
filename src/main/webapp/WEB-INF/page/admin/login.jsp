@@ -20,7 +20,7 @@
 			$.ajax({
 				type:'post',
 				datatype:'json',
-				url:'${ctx}/login.html',
+				url:'${ctx}/admin/login.html',
 				data:$('#form_login').serialize(),
 				beforeSend: function() {
                 },

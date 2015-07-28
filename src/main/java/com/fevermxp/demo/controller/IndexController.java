@@ -17,7 +17,7 @@ public class IndexController {
 
 	@RequestMapping(value = "index")
 	public String helloWorld(Model model, HttpSession session){
-		UserInfo user = (UserInfo) session.getAttribute(C.SESSION_KEY);
+		UserInfo user = (UserInfo) session.getAttribute(C.ADMIN_SESSION_KEY);
 		List<Menu> menuList = (List<Menu>) session.getAttribute(C.MENU_KEY);
 		model.addAttribute("user", user);
 		model.addAttribute("menu", menuList);

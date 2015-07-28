@@ -31,15 +31,15 @@ public class LoginController extends AbstractBaseCotroller {
 	private final static String USID_COOKIE = "loginid";
 	protected final Logger log = Logger.getLogger(this.getClass());
 	
-	@Resource
+/*	@Resource
 	IUserInfoService iuserInfoService;
 	@Resource
 	IMenuService imenuService;
 	
-	/**
+	*//**
 	 * 登录页面
 	 * @return
-	 */
+	 *//*
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String toLoginPage(Model model,
 			HttpServletRequest request){
@@ -47,14 +47,14 @@ public class LoginController extends AbstractBaseCotroller {
 		return "login";
 	}
 	
-	/**
+	*//**
 	 * 用户登录
 	 * @param model
 	 * @param session
 	 * @param request
 	 * @param response
 	 * @param str
-	 */
+	 *//*
 	@RequestMapping(value = "/login" , method = RequestMethod.POST)
 	public void signin(Model model,
 			HttpSession session,
@@ -82,7 +82,7 @@ public class LoginController extends AbstractBaseCotroller {
 			super.ajaxReturn(response, JSONObject.fromObject(result).toString());
 			return;
 		}
-		session.setAttribute(C.SESSION_KEY, _user);
+		session.setAttribute(C.ADMIN_SESSION_KEY, _user);
 		
 		String userRights = _user.getRights()+"";
 		List<Menu> menuList = imenuService.listAllMenu();
@@ -104,11 +104,11 @@ public class LoginController extends AbstractBaseCotroller {
 		return;
 	}
 	
-	/**
+	*//**
 	 * 用户注销
 	 * @param model
 	 * @param session
-	 */
+	 *//*
 	@RequestMapping(value="/logout")
 	public void signout_page(Model model,
 			HttpServletResponse response,
@@ -117,5 +117,5 @@ public class LoginController extends AbstractBaseCotroller {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("result", 1);
 		super.ajaxReturn(response, JSONObject.fromObject(map).toString());
-	}
+	}*/
 }
