@@ -59,23 +59,20 @@ public class AccessInterceptor extends HandlerInterceptorAdapter {
                 break;
             }
         }
-        System.out.println(beFilter);
         if(beFilter){
         	for (String s : noFilters) {
                 if (StringUtils.contains(uri, s)) {
-                	System.out.println(uri);
-                	System.out.println(s);
                     beFilter = false;
                     break;
                 }
             }
         }
-        System.out.println(beFilter);
         //log.debug("是否要检查Session："+beFilter);
         if (beFilter) {
         	log.debug("检查Session："+uri);
         	Object obj = request.getSession().getAttribute(C.ADMIN_SESSION_KEY);
-        	if(null == obj){
+        	Integer isadmin = (Integer) request.getSession().getAttribute(C.IS_ADMIN);
+        	if(null == obj||isadmin<2){
         		//log.debug("Session为空");
         		response.setStatus(401);
         		if (request.getHeader("X-Requested-With") != null) {

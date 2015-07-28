@@ -732,53 +732,123 @@ public class UserInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andRightsEqualTo(Long value) {
+        public Criteria andRightsEqualTo(String value) {
             addCriterion("rights =", value, "rights");
             return (Criteria) this;
         }
 
-        public Criteria andRightsNotEqualTo(Long value) {
+        public Criteria andRightsNotEqualTo(String value) {
             addCriterion("rights <>", value, "rights");
             return (Criteria) this;
         }
 
-        public Criteria andRightsGreaterThan(Long value) {
+        public Criteria andRightsGreaterThan(String value) {
             addCriterion("rights >", value, "rights");
             return (Criteria) this;
         }
 
-        public Criteria andRightsGreaterThanOrEqualTo(Long value) {
+        public Criteria andRightsGreaterThanOrEqualTo(String value) {
             addCriterion("rights >=", value, "rights");
             return (Criteria) this;
         }
 
-        public Criteria andRightsLessThan(Long value) {
+        public Criteria andRightsLessThan(String value) {
             addCriterion("rights <", value, "rights");
             return (Criteria) this;
         }
 
-        public Criteria andRightsLessThanOrEqualTo(Long value) {
+        public Criteria andRightsLessThanOrEqualTo(String value) {
             addCriterion("rights <=", value, "rights");
             return (Criteria) this;
         }
 
-        public Criteria andRightsIn(List<Long> values) {
+        public Criteria andRightsLike(String value) {
+            addCriterion("rights like", value, "rights");
+            return (Criteria) this;
+        }
+
+        public Criteria andRightsNotLike(String value) {
+            addCriterion("rights not like", value, "rights");
+            return (Criteria) this;
+        }
+
+        public Criteria andRightsIn(List<String> values) {
             addCriterion("rights in", values, "rights");
             return (Criteria) this;
         }
 
-        public Criteria andRightsNotIn(List<Long> values) {
+        public Criteria andRightsNotIn(List<String> values) {
             addCriterion("rights not in", values, "rights");
             return (Criteria) this;
         }
 
-        public Criteria andRightsBetween(Long value1, Long value2) {
+        public Criteria andRightsBetween(String value1, String value2) {
             addCriterion("rights between", value1, value2, "rights");
             return (Criteria) this;
         }
 
-        public Criteria andRightsNotBetween(Long value1, Long value2) {
+        public Criteria andRightsNotBetween(String value1, String value2) {
             addCriterion("rights not between", value1, value2, "rights");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertypeIsNull() {
+            addCriterion("usertype is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertypeIsNotNull() {
+            addCriterion("usertype is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertypeEqualTo(Integer value) {
+            addCriterion("usertype =", value, "usertype");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertypeNotEqualTo(Integer value) {
+            addCriterion("usertype <>", value, "usertype");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertypeGreaterThan(Integer value) {
+            addCriterion("usertype >", value, "usertype");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("usertype >=", value, "usertype");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertypeLessThan(Integer value) {
+            addCriterion("usertype <", value, "usertype");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertypeLessThanOrEqualTo(Integer value) {
+            addCriterion("usertype <=", value, "usertype");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertypeIn(List<Integer> values) {
+            addCriterion("usertype in", values, "usertype");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertypeNotIn(List<Integer> values) {
+            addCriterion("usertype not in", values, "usertype");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertypeBetween(Integer value1, Integer value2) {
+            addCriterion("usertype between", value1, value2, "usertype");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("usertype not between", value1, value2, "usertype");
             return (Criteria) this;
         }
     }

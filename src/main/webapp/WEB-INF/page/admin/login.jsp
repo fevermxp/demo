@@ -29,7 +29,11 @@
                 },
 				success:function(data){
 					if(data.result==1){
+						//location.href="${ctx}/index.html";
+						alert('权限不足！');
+					}if(data.result==2){
 						location.href="${ctx}/admin/index.html";
+						
 					}else{
 						document.getElementById('msg').innerHTML= "";
 						document.getElementById('msg').innerHTML= data.result;

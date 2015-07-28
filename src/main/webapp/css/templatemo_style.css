@@ -86,7 +86,7 @@ nav .fa { display: block; text-align: center; margin-bottom: 13px; }
     right:0;
     bottom:0;
     color: white;
-    background:rgba(197,82,87,.8);   
+    background:rgba(197,82,87,.5);   
     z-index:1;
     padding: 20px;
     margin: 0;
@@ -139,6 +139,7 @@ nav .fa { display: block; text-align: center; margin-bottom: 13px; }
 #services .fa { line-height: 90px; }
 #services_content { height: 280px; }
 #services_content .tab-pane {  padding: 15px; }
+.tab-pane h3{font-family: 'YouYuan', Arial, sans-serif; overflow-x: hidden;}
 #services_content a { color: #FFFFFF; }
 
 /*http://cssarrowplease.com/*/

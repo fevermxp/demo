@@ -3,10 +3,7 @@ package com.fevermxp.demo.entity;
 import java.util.Date;
 
 public class UserInfo extends BaseModel {
-	
-	private static final long serialVersionUID = 3962796979683439477L;
-
-	private Integer usid;
+    private Integer usid;
 
     private String login;
 
@@ -24,7 +21,9 @@ public class UserInfo extends BaseModel {
 
     private Date updt;
 
-    private Long rights;
+    private String rights;
+
+    private Integer usertype;
 
     public Integer getUsid() {
         return usid;
@@ -98,11 +97,19 @@ public class UserInfo extends BaseModel {
         this.updt = updt;
     }
 
-    public Long getRights() {
+    public String getRights() {
         return rights;
     }
 
-    public void setRights(Long rights) {
-        this.rights = rights;
+    public void setRights(String rights) {
+        this.rights = rights == null ? null : rights.trim();
+    }
+
+    public Integer getUsertype() {
+        return usertype;
+    }
+
+    public void setUsertype(Integer usertype) {
+        this.usertype = usertype;
     }
 }

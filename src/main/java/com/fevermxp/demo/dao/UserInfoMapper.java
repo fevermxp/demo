@@ -4,9 +4,7 @@ import com.fevermxp.demo.entity.UserInfo;
 import com.fevermxp.demo.entity.UserInfoExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
-@Repository
 public interface UserInfoMapper {
     int countByExample(UserInfoExample example);
 

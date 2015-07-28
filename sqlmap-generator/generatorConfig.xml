@@ -34,14 +34,14 @@
       <property name="trimStrings" value="true" />
     </javaModelGenerator>
 
-    <sqlMapGenerator targetPackage="resources.mybatis"  targetProject="E:\developed\eclipse_nwe_indigo\workplace\demo\src\main\java">
+    <sqlMapGenerator targetPackage="resources.mybatis"  targetProject="E:\developed\eclipse_nwe_indigo\workplace\demo\src\main">
       <property name="enableSubPackages" value="true" />
     </sqlMapGenerator>
 
     <javaClientGenerator type="XMLMAPPER" targetPackage="com.fevermxp.demo.dao"  targetProject="E:\developed\eclipse_nwe_indigo\workplace\demo\src\main\java">
       <property name="enableSubPackages" value="true" />
     </javaClientGenerator>
-    
+<!--    
     <table tableName="menu" domainObjectName="Menu"
     	enableSelectByPrimaryKey="true"
 		enableSelectByExample="true"
@@ -52,8 +52,8 @@
 		enableUpdateByExample="true"
 		selectByPrimaryKeyQueryId="false"
 		selectByExampleQueryId="false">
-    </table>
-<!--     <table tableName="userinfo" domainObjectName="UserInfo"
+    </table>-->
+     <table tableName="userinfo" domainObjectName="UserInfo"
     	enableSelectByPrimaryKey="true"
 		enableSelectByExample="true"
 		enableUpdateByPrimaryKey="true"
@@ -63,7 +63,7 @@
 		enableUpdateByExample="true"
 		selectByPrimaryKeyQueryId="false"
 		selectByExampleQueryId="false">
-    </table> -->
+    </table> 
    
   </context>
 </generatorConfiguration>

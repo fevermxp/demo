@@ -11,7 +11,8 @@
     <result column="crdt" property="crdt" jdbcType="DATE" />
     <result column="lndt" property="lndt" jdbcType="DATE" />
     <result column="updt" property="updt" jdbcType="DATE" />
-    <result column="rights" property="rights" jdbcType="BIGINT" />
+    <result column="rights" property="rights" jdbcType="VARCHAR" />
+    <result column="usertype" property="usertype" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -72,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    usid, login, pass, realname, tel, workcode, crdt, lndt, updt, rights
+    usid, login, pass, realname, tel, workcode, crdt, lndt, updt, rights, usertype
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.fevermxp.demo.entity.UserInfoExample" >
     select
@@ -108,12 +109,12 @@
   <insert id="insert" parameterType="com.fevermxp.demo.entity.UserInfo" >
     insert into userinfo (usid, login, pass, 
       realname, tel, workcode, 
-      crdt, lndt, updt, rights
-      )
+      crdt, lndt, updt, rights, 
+      usertype)
     values (#{usid,jdbcType=INTEGER}, #{login,jdbcType=VARCHAR}, #{pass,jdbcType=VARCHAR}, 
       #{realname,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{workcode,jdbcType=VARCHAR}, 
-      #{crdt,jdbcType=DATE}, #{lndt,jdbcType=DATE}, #{updt,jdbcType=DATE}, #{rights,jdbcType=BIGINT}
-      )
+      #{crdt,jdbcType=DATE}, #{lndt,jdbcType=DATE}, #{updt,jdbcType=DATE}, #{rights,jdbcType=VARCHAR}, 
+      #{usertype,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.fevermxp.demo.entity.UserInfo" >
     insert into userinfo
@@ -148,6 +149,9 @@
       <if test="rights != null" >
         rights,
       </if>
+      <if test="usertype != null" >
+        usertype,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="usid != null" >
@@ -178,7 +182,10 @@
         #{updt,jdbcType=DATE},
       </if>
       <if test="rights != null" >
-        #{rights,jdbcType=BIGINT},
+        #{rights,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null" >
+        #{usertype,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -219,7 +226,10 @@
         updt = #{record.updt,jdbcType=DATE},
       </if>
       <if test="record.rights != null" >
-        rights = #{record.rights,jdbcType=BIGINT},
+        rights = #{record.rights,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usertype != null" >
+        usertype = #{record.usertype,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -237,7 +247,8 @@
       crdt = #{record.crdt,jdbcType=DATE},
       lndt = #{record.lndt,jdbcType=DATE},
       updt = #{record.updt,jdbcType=DATE},
-      rights = #{record.rights,jdbcType=BIGINT}
+      rights = #{record.rights,jdbcType=VARCHAR},
+      usertype = #{record.usertype,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -270,7 +281,10 @@
         updt = #{updt,jdbcType=DATE},
       </if>
       <if test="rights != null" >
-        rights = #{rights,jdbcType=BIGINT},
+        rights = #{rights,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null" >
+        usertype = #{usertype,jdbcType=INTEGER},
       </if>
     </set>
     where usid = #{usid,jdbcType=INTEGER}
@@ -285,7 +299,8 @@
       crdt = #{crdt,jdbcType=DATE},
       lndt = #{lndt,jdbcType=DATE},
       updt = #{updt,jdbcType=DATE},
-      rights = #{rights,jdbcType=BIGINT}
+      rights = #{rights,jdbcType=VARCHAR},
+      usertype = #{usertype,jdbcType=INTEGER}
     where usid = #{usid,jdbcType=INTEGER}
   </update>
 </mapper>

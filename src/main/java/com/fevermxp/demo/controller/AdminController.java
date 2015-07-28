@@ -80,9 +80,15 @@ public class AdminController extends AbstractBaseCotroller {
 			super.ajaxReturn(response, JSONObject.fromObject(result).toString());
 			return;
 		}
+		
+		if(_user.getUsertype()<1){
+			result.put("result", "用户已禁用...");
+			super.ajaxReturn(response, JSONObject.fromObject(result).toString());
+			return;
+		}
 		session.setAttribute(C.ADMIN_SESSION_KEY, _user);
 		
-		String userRights = _user.getRights()+"";
+		String userRights = _user.getRights();
 		List<Menu> menuList = imenuService.listAllMenu();
 		if(Tools.notEmpty(userRights)){
 			for(Menu menu : menuList){
@@ -96,8 +102,9 @@ public class AdminController extends AbstractBaseCotroller {
 			}
 		}
 		session.setAttribute(C.MENU_KEY, menuList);
+		session.setAttribute(C.IS_ADMIN, _user.getUsertype());
 		super.setCookie(response, USID_COOKIE, _user.getLogin(), 7*24*3600);
-		result.put("result", 1);
+		result.put("result", _user.getUsertype());
 		super.ajaxReturn(response, JSONObject.fromObject(result).toString());
 		return;
 	}
