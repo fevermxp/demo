@@ -85,10 +85,10 @@
                         </li>
 							<c:forEach items="${menu }" var="mf">
 								<li class="submenu">
-		                            <a class="dropdown" href="#" data-original-title="Pages"><i class="fa fa-caret-square-o-right"></i><span class="hidden-minibar">  ${mf.menuName } <span class="badge bg-primary pull-right">5</span></span></a>
+		                            <a class="dropdown" href="#" data-original-title="Pages"><i class="fa fa-caret-square-o-right"></i><span class="hidden-minibar">  ${mf.menuName } <span class="badge bg-primary pull-right">${mf.subCount }</span></span></a>
 		                            <ul>
 		                            	<c:forEach items="${mf.subMenu }" var="ms">
-		                            		<li><a href="calendar.html" data-original-title="Calendar"><i class="fa fa-calendar"></i><span> ${ms.menuName }</span></a>
+		                            		<li><a href="javascript:toPage('${ms.menuUrl }')">&nbsp;&nbsp;&nbsp;<i class="fa fa-info"></i><span>${ms.menuName }</span></a>
 		                                	</li>
 		                            	</c:forEach>
 		                            </ul>
@@ -97,25 +97,23 @@
 						
                         <li><a href="${ctx }/admin/icons.html" data-original-title="Icons"><i class="fa fa-book"></i><span class="hidden-minibar"> 图标</span></a>
                         </li>
-                        <li><a href="http://www.weidea.net" data-original-title="Icons"><i class="fa fa-book"></i><span class="hidden-minibar"> 更多样式</span></a>
+                        <li><a id="testbtn" href="#" data-original-title="Icons"><i class="fa fa-book"></i><span class="hidden-minibar"> 图标</span></a>
                         </li>
-
+                        
                     </ul>
                 </div>
             </div>
             <!-- /.left-sidebar -->
 
             <!-- .content -->
-            <div class="content">
+            <div id="contentdiv" class="content">
                 <div class="row">
                     <div class="col-mod-12">
 
                         <ul class="breadcrumb">
-                            <li><a href="index.html">Dashboard</a>
-                            </li>
-                            <li><a href="template.html">Template</a>
-                            </li>
-                            <li class="active">DashBoard</li>
+                        	<c:forEach items="${pathname }" var="p">
+                            	<li class="active">${p }</li>
+                            </c:forEach>
                         </ul>
 
                         <div class="form-group hiddn-minibar pull-right">
@@ -123,18 +121,18 @@
                             <span class="input-icon fui-search"></span>
                         </div>
 
-                        <h3 class="page-header"><i class="fa fa fa-dashboard"></i> Dashboard</h3>
+                        <h3 class="page-header"><i class="fa fa fa-home"></i> 首页</h3>
 
                     </div>
                 </div>
                 <!-- content-top -->
 
                 <!-- Users widget -->
-                <div class="row">
+		         <div class="row">
                     <div class="col-md-12">
                         <div class="panel">
                             <div class="panel-body">
-                                <table class="table table-bordered table-condensed table-hover" id="example">
+                                 <table class="table table-bordered table-condensed table-hover" id="example">
                                     <thead>
                                         <tr>
                                             <th>
@@ -207,7 +205,6 @@
                 <div class="footer">
                     © 2015 <a href="http://fevermxp.com">FEVER MXP</a>
                 </div>
-
             </div>
             <!-- /.content -->
 
@@ -215,21 +212,21 @@
             <div class="right-sidebar right-sidebar-hidden">
                 <div class="right-sidebar-holder">
                     <!-- @Demo part only The part from here can be removed till end of the @demo  -->
-                    <a href="screens.html" class="btn btn-danger btn-block">Logout </a>
+                    <a href="screens.html" class="btn btn-danger btn-block">登出 </a>
                     <h4 class="page-header text-primary text-center">
-  						Theme Options
+  						样式选项
   						<a  href="#"  class="theme-panel-close text-primary pull-right"><strong><i class="fa fa-times"></i></strong></a>
   					</h4>
                     <ul class="list-group theme-options">
                         <li class="list-group-item" href="#">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" id="fixedNavbar" value="">Fixed Top Navbar
+                                    <input type="checkbox" id="fixedNavbar" value="">锁定顶部Navbar
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" id="fixedNavbarBottom" value="">Fixed Bottom Navbar
+                                    <input type="checkbox" id="fixedNavbarBottom" value="">锁定底端Navbar
                                 </label>
                             </div>
                             <div class="checkbox">
@@ -239,7 +236,7 @@
                             </div>
 
                             <div class="form-group backgroundImage hidden">
-                                <label class="control-label">Paste Image Url and then hit enter</label>
+                                <label class="control-label">粘贴图片链接，点击回车！</label>
                                 <input type="text" class="form-control" id="backgroundImageUrl" />
                             </div>
                         </li>
@@ -277,9 +274,32 @@
 
     <!-- Core Jquery File  =============================-->
     <script src="${ctx }/adminplugins/js/core.js"></script>
-<script type="text/javascript">
+	<script type="text/javascript">
 	$(document).ready(function(){
+		
+		$("#testbtn").click(function(){
+			$.ajax({
+				type: 'GET',
+				url: '${ctx }/admin/user.html',
+				async: true,
+				success: function(data){
+					$("#contentdiv").html(data);
+				}
+			});
+		});
 	});
+	
+	function toPage(url){
+		url = '${ctx }/' + url;
+		$.ajax({
+			type: 'GET',
+			url: url,
+			async: true,
+			success: function(data){
+				$("#contentdiv").html(data);
+			}
+		});
+	}
 </script>
 </body>
 </html>

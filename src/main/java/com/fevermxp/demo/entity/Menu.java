@@ -16,8 +16,18 @@ public class Menu {
 	private List<Menu> subMenu;
 	
 	private boolean hasMenu = false;
+	
+	private Integer subCount;
 
-    public Menu getParentMenu() {
+    public Integer getSubCount() {
+		return subCount;
+	}
+
+	public void setSubCount(Integer subCount) {
+		this.subCount = subCount;
+	}
+
+	public Menu getParentMenu() {
 		return parentMenu;
 	}
 

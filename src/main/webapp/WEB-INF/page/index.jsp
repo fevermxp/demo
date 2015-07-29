@@ -149,7 +149,7 @@
               <ul id="services_tabs">
                 <li class="icon-button active" data-target="#pencil"><i class="fa fa-pencil" style="vertical-align: middle"></i></li>
                 <li class="icon-button" data-target="#cog"><i class="fa fa-cog"></i></li>            
-                <li class="icon-button" data-target="#signal"><i class="fa fa-signal"></i></li>
+                <li class="icon-button" data-target="#signal"><i class="fa fa-book"></i></li>
               </ul>
             </div>
           </div>
@@ -158,20 +158,20 @@
             <div class="arrow-box center-row">
               <div class="tab-content center">              
                 <div class="tab-pane fade in active" id="pencil">
-                  	<h3>码农基因</h3>
-                  	<p>精通SpringMVC\Spring\mybatis等框架，可快速实现网站应用的功能代码实现</p>
-               	  	<p>熟悉jquery、jquery mobile、easyUI等前台框架，可快速实现网站应用的界面代码实现</p>
-                </div>
-                <div class="tab-pane fade" id="cog">
-                	<h3>工程师基因</h3>
-                  	<p>擅长诸如tomcat等web中间件的优化</p>
-                  	<p>数据库优化正在充电中...</p>
-                </div>
-                <div class="tab-pane fade" id="signal">
-                	<h3>Social Media</h3>
-                  	<p>Quisque gravida ac nisl nec ultrices. Mauris tincidunt magna vitae feugiat tincidunt. Maecenas semper quis arcu in porta.</p>
-                  	<p>Download <a rel="nofollow" href="#">templates</a> for your websites. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean adipiscing quam sed neque dapibus, id convallis mauris eleifend. Quisque sit amet nisl a ante pulvinar sodales.</p>
-                </div>
+					<h3>码农</h3>
+					<p>精通SpringMVC\Spring\mybatis等框架，可快速实现网站应用的功能代码实现；熟悉jquery、jquery mobile、easyUI等前台框架，可快速实现网站应用的界面代码实现；同时android、HTML5、bootstrap等技术正在自学中。</p>
+					<p>曾参与开发某世界500强公司ERP外围系统、集中采购系统、固定资产管理系统、OMS仓储系统、手机端综合管理系统等多个项目经验。</p>
+				</div>
+				<div class="tab-pane fade" id="cog">
+					<h3>工程师</h3>
+					<p>擅长诸如tomcat等web中间件的优化，曾参与重建公司java服务器架构。</p>
+					<p>当然除了代码技术之外，对于一个工程师来说，软能力同样重要。经过5年的工作积累，对制造业的生产业务流程有较为深入的了解，熟悉制造企业ERP、MES、WMS、CRM等系统的工作原理。</p>
+				</div>
+				<div class="tab-pane fade" id="signal">
+					<h3>学习者</h3>
+					<p>歌德曾说：我们全都要从前辈和同辈学习到一些东西。就连最大的天才，如果想单凭他所特有的内在自我去对付一切，他也决不会有多大成就。</p>
+					<p>学习是人前进的燃料，前进的途中，每前进一步就会发现为知的世界是如此的浩瀚，人必须时刻保持前进！</p>
+				</div>
               </div>                                     
             </div>
           </div>
@@ -248,8 +248,8 @@
                         <p>Lorem ipsum dolor sit amet, adipiscing elit. Vivamus elit nec metus pellentesque.</p> 
                       </a>
                     </div>
-                  </div>                     
-                </div>      
+                  </div>
+                </div>
               </div>
               <div class="col col-md-4 col-sm-4 col-xs-6">  
                 <div class="portfolio-item">

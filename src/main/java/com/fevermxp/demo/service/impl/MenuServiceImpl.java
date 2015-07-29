@@ -56,6 +56,7 @@ public class MenuServiceImpl implements IMenuService {
 		for(Menu menu : rl){
 			List<Menu> subList = this.listSubMenuByParentId(menu.getMenuId());
 			menu.setSubMenu(subList);
+			menu.setSubCount(subList.size());
 		}
 		return rl;
 	}

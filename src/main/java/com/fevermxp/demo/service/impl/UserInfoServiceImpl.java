@@ -41,5 +41,12 @@ public class UserInfoServiceImpl implements IUserInfoService {
 		List<UserInfo> users = userInfoMapper.selectByExample(ue);
 		return users.get(0);
 	}
+
+	@Override
+	public List<UserInfo> selectAllUserLowerMe(UserInfo user) {
+		UserInfoExample ue = new UserInfoExample();
+		ue.createCriteria().andUsertypeLessThanOrEqualTo(user.getUsertype());
+		return userInfoMapper.selectByExample(ue);
+	}
 }
 

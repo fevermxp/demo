@@ -1,5 +1,6 @@
 package com.fevermxp.demo.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -124,12 +125,43 @@ public class AdminController extends AbstractBaseCotroller {
 		super.ajaxReturn(response, JSONObject.fromObject(map).toString());
 	}
 	
+	/**
+	 * 后台管理页面
+	 * @param model
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("/index")
 	public String index(Model model, HttpSession session) {
 		UserInfo user = (UserInfo) session.getAttribute(C.ADMIN_SESSION_KEY);
 		List<Menu> menuList = (List<Menu>) session.getAttribute(C.MENU_KEY);
 		model.addAttribute("user", user);
 		model.addAttribute("menu", menuList);
+		List<String> list = new ArrayList<String>();
+		list.add("首页");
+		model.addAttribute("pathname", list);
 		return "admin/index";
+	}
+	
+	/**
+	 * 用户界面
+	 * @param model
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("/user")
+	public String userPage(Model model, HttpSession session){
+		UserInfo user = (UserInfo) session.getAttribute(C.ADMIN_SESSION_KEY);
+		List<Menu> menuList = (List<Menu>) session.getAttribute(C.MENU_KEY);
+		List<UserInfo> userList = iuserInfoService.selectAllUserLowerMe(user);
+		model.addAttribute("user", user);
+		model.addAttribute("menu", menuList);
+		model.addAttribute("userlist", userList);
+		/*增加路径显示信息*/
+		List<String> list = new ArrayList<String>();
+		list.add("首页");
+		list.add("用户管理");
+		model.addAttribute("pathname", list);
+		return "admin/user";
 	}
 }
